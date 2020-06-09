@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+	
+		{% block content %}
+			{% with messages = get_flashed_messages() %}
+
+	    {% if messages %}
+	    
+		    <ul style='list-style: none;'class='alert-dismissible container alert alert-warning'>
+		    	<button type="button" class="close" data-dismiss="alert">&times;</button>
+		    	{% for message in messages %}
+		       <li><strong>{{ message }}</strong></li>
+		    	{% endfor %}
+		    </ul>
+		
+		{% endif %}
+		{% endwith %}
+			<form method="POST" action="{{url_for('home')}}">
+				<div class='form-group'>
+					<div class="form-control-label"><p>Enter Your Paragraph Here:</p>
+					<p class='text-primary'>Please Enter the Paragraph without any heading or subheading, because the model is not very advanced. &#128540;</p>
+					</div>
+					<textarea style='height:300px;'class="form-control form-controm-lg mb-1 textarea" type = "text" name = "paragraph"></textarea>
+					<input class='btn btn-outline-info' name='button' value='Generate Summary' type="submit"/> <input class='btn btn-outline-info' name='button' value='Generate Title' type="submit"/>
+				</div>
+			</form>
+		
+		{% endblock content %}

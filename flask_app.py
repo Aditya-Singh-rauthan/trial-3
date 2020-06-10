@@ -1,4 +1,5 @@
 from flask import Flask,render_template,url_for,request,flash
+import nltk
 nltk.data.path.append('./nltk_data/')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
